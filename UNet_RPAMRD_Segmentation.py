@@ -1,25 +1,15 @@
 import os
-import h5py
 import numpy as np
-import cv2  # For CV operations
-from PIL import Image  # To create and store images
-from patchify import patchify
-from keras.models import *
-from keras.layers import *
-from keras.optimizers import *
-import keras.callbacks
-from keras.callbacks import TensorBoard, ModelCheckpoint
-from keras import backend as keras
+import h5py
 import matplotlib.pyplot as plt
-from tensorflow.keras.optimizers import Adam
 import tensorflow as tf
-from tensorflow_addons.metrics import F1Score
-from tensorflow.keras.layers import (
-    Conv2D, BatchNormalization, Activation, Add, UpSampling2D
-)
+from tensorflow.keras.optimizers import Adam
 from tensorflow.keras import Model, Input
-from contextlib import redirect_stdout
-from typing import Callable
+from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Add, UpSampling2D
+from tensorflow_addons.metrics import F1Score
+
+from PIL import Image
+from keras.callbacks import ModelCheckpoint
 from keras_cv_attention_models.attention_layers import (
     activation_by_name, ChannelAffine, conv2d_no_bias, depthwise_conv2d_no_bias,
     drop_block, mlp_block, output_block, add_pre_post_process
